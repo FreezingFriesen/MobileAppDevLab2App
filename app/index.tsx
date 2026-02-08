@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Alert, GestureResponderEvent } from "react-native";
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { Stack } from 'expo-router';
 
 export default function App() {
   function handleAlertPress(): void {
@@ -10,6 +11,8 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
+      <Stack.Screen options={{ headerShown: false}} />
+
       <SafeAreaView style={styles.container}>
         <ScrollView>
           {/* --- Header Section --- */}
@@ -51,25 +54,25 @@ export default function App() {
 
             </View>
             <View style={styles.accountItem}>
-              <Text style={styles.accountText}>Input (••••)</Text><Text style={styles.balance}>••••••</Text>
+              <Text style={styles.accountText}>Input (••••)</Text><Text style={styles.balance}>50,000</Text>
             </View>
             <View style={styles.accountItem}>
-              <Text style={styles.accountText}>Disposable Income (••••)</Text><Text style={styles.balance}>••••••</Text>
+              <Text style={styles.accountText}>Disposable Income (••••)</Text><Text style={styles.balance}>1,000,000</Text>
             </View>
             <View style={styles.accountItem}>
-              <Text style={styles.accountText}>VISA (••••)</Text><Text style={styles.balance}>••••••</Text>
+              <Text style={styles.accountText}>VISA (••••)</Text><Text style={styles.balance}>0.00</Text>
             </View>
             <View style={styles.accountItem}>
-              <Text style={styles.accountText}>Rainy Day (Also Student Loans) (••••)</Text><Text style={styles.balance}>••••••</Text>
+              <Text style={styles.accountText}>Rainy Day (Also Student Loans) (••••)</Text><Text style={styles.balance}>Tons of Money</Text>
             </View>
             <View style={styles.accountItem}>
-              <Text style={styles.accountText}>Travel (••••)</Text><Text style={styles.balance}>••••••</Text>
+              <Text style={styles.accountText}>Travel (••••)</Text><Text style={styles.balance}>So Much Money</Text>
             </View>
             <View style={styles.accountItem}>
-              <Text style={styles.accountText}>RRSP (••••)</Text><Text style={styles.balance}>••••••</Text>
+              <Text style={styles.accountText}>RRSP (••••)</Text><Text style={styles.balance}>30 MILLION DOLLARS</Text>
             </View>
             <View style={styles.accountItem}>
-              <Text style={styles.accountText}>Tax-Free Savings Account (••••)</Text><Text style={styles.balance}>••••••</Text>
+              <Text style={styles.accountText}>Tax-Free Savings Account (••••)</Text><Text style={styles.balance}>EVEN MORE MONEY</Text>
             </View>
 
             <View style={styles.accountBottom}>
@@ -78,6 +81,7 @@ export default function App() {
               <Text style={styles.accountBottomText}> View all</Text>
             </View>
           </View>
+          <View style={styles.bottomBackground}></View>
         </ScrollView>
 
           {/* --- Bottom Dashboard + Alert Button --- */}
@@ -114,20 +118,18 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f4f4f4',
+    backgroundColor: '#005da4',
   },
+  // f4f4f4
   header: {
     backgroundColor: '#005da4',
-    padding: 20,
+    paddingHorizontal: 20,
     paddingBottom: 20,
-    // paddingTop: 20,
-    // borderBottomLeftRadius: 10,
-    // borderBottomRightRadius: 10,
   },
   serviceNotice: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 45,
   },
   serviceText: {
     color: 'white',
@@ -190,6 +192,7 @@ const styles = StyleSheet.create({
   accountItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    backgroundColor: '#f4f4f4',
     paddingVertical: 15,
     borderBottomWidth: 1,
     borderBottomColor: '#EEEEEE',
@@ -197,6 +200,9 @@ const styles = StyleSheet.create({
     color: "white",
   },
   accountText: {
+    color: "#57595B",
+  },
+  balance: {
     color: "#57595B",
   },
   accountBottom: {
@@ -207,16 +213,18 @@ const styles = StyleSheet.create({
     borderTopColor: '#CBCBCB', 
     borderBottomWidth: 1,
     borderBottomColor: '#CBCBCB', 
+    backgroundColor: '#f4f4f4',
   },
   accountBottomText: {
     color: '#6594B1',
   },
-  balance: {
-
+  bottomBackground: {
+    backgroundColor: '#EEEEEE',
+    padding: 50,
   },
   alertButtonText: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 13,
     color: '#000',
   },
   bottomTabContainer: {
@@ -224,7 +232,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     flexDirection: 'row',
     backgroundColor: 'white',
-    height: 90,
+    height: 100,
     width: '100%',
     borderTopWidth: 1,
     borderTopColor: '#eee',
